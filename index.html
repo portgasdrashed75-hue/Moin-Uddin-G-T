@@ -86,7 +86,6 @@
   header{
     position:sticky; top:0; z-index:50;
     background:var(--paper);
-    border-bottom:1px solid var(--line);
   }
   .header-inner{
     max-width:1180px; margin:0 auto; padding:16px 24px;
@@ -114,6 +113,7 @@
   .btn{
     font-family:inherit; font-weight:700; font-size:14px; border:none; cursor:pointer;
     padding:10px 18px; border-radius:999px; transition:transform .15s ease, background .15s ease;
+    text-decoration:none; display:inline-block;
   }
   .btn:hover{transform:translateY(-1px);}
   .btn-primary{background:var(--green-deep); color:#fff;}
@@ -194,20 +194,23 @@
   }
   .card{
     background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:14px; display:flex; flex-direction:column; gap:10px;
+    padding:16px; display:flex; flex-direction:column; gap:12px;
+    box-shadow:0 1px 2px rgba(31,59,35,0.04);
+    transition:box-shadow .2s ease, transform .2s ease;
   }
+  .card:hover{box-shadow:0 10px 24px rgba(31,59,35,0.12); transform:translateY(-2px);}
   .card-img{
-    border-radius:10px; aspect-ratio:1/0.85;
+    border-radius:12px; aspect-ratio:1/0.85;
     display:flex; align-items:center; justify-content:center;
-    font-size:38px;
+    font-size:42px;
   }
-  .card h3{font-size:15.5px; font-weight:700;}
-  .card .unit{font-size:12px; color:#8a8e80;}
+  .card h3{font-size:16px; font-weight:700;}
+  .card .unit{font-size:12.5px; color:#8a8e80; margin-top:2px;}
   .card-bottom{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
-  .price{font-family:'Fraunces',serif; font-size:18px; color:var(--green-deep);}
+  .price{font-family:'Fraunces',serif; font-size:19px; color:var(--green-deep);}
   .add-btn{
-    width:34px; height:34px; border-radius:999px; border:none; background:var(--green-deep); color:#fff;
-    font-size:18px; cursor:pointer; line-height:1;
+    width:38px; height:38px; border-radius:999px; border:none; background:var(--green-deep); color:#fff;
+    font-size:20px; cursor:pointer; line-height:1; flex-shrink:0;
   }
   .add-btn:hover{background:var(--tomato);}
   .empty-note{color:#8a8e80; font-size:14px; padding:20px 0;}
@@ -252,6 +255,11 @@
   .drawer-item button{background:none; border:none; color:var(--tomato); cursor:pointer; font-size:13px;}
   .drawer-foot{padding:18px 20px; border-top:1px solid var(--line);}
   .drawer-total{display:flex; justify-content:space-between; font-family:'Fraunces',serif; font-size:19px; color:var(--green-deep); margin-bottom:14px;}
+  .btn-whatsapp{
+    width:100%; background:#25D366; color:#fff; margin-top:10px;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .btn-whatsapp:hover{background:#1DA851;}
 
   footer{
     border-top:1px solid var(--line); margin-top:40px; padding:30px 24px; text-align:center;
@@ -260,8 +268,43 @@
 
   @media (max-width:820px){
     .hero{grid-template-columns:1fr;}
+    .hero-art{display:none;}
     .admin{grid-template-columns:1fr;}
     .form-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Mobile phones ---------- */
+  @media (max-width:600px){
+    .header-inner{padding:12px 16px; gap:10px;}
+    .brand-mark{width:34px; height:34px; font-size:17px;}
+    .brand-name{font-size:17px;}
+    .search-wrap{order:3; flex-basis:100%; max-width:100%;}
+    .search-wrap input{padding:12px 16px 12px 40px; font-size:16px;}
+    .btn{padding:12px 18px; font-size:14.5px;}
+
+    .hero{padding:22px 16px 26px; gap:20px;}
+    .eyebrow{font-size:11px; margin-bottom:12px;}
+    .hero h1{font-size:30px; line-height:1.1;}
+    .hero p{font-size:15px; margin:14px 0 20px;}
+    .hero-ctas{flex-direction:column;}
+    .hero-ctas .btn{width:100%; text-align:center; padding:14px 16px;}
+    .ticker{display:none;}
+    .hero-art{aspect-ratio:16/9; border-radius:16px;}
+    .hero-art .price-tag{margin:14px; padding:14px 16px;}
+    .hero-art .price-tag .p2{font-size:20px;}
+
+    .section{padding:30px 16px;}
+    .section-head h2{font-size:22px;}
+    .categories{padding:0 16px 6px;}
+    .chip{padding:9px 14px; font-size:13px;}
+
+    .grid{grid-template-columns:repeat(2, 1fr); gap:12px;}
+    .card{padding:12px;}
+    .card-img{font-size:34px;}
+    .card h3{font-size:14px;}
+
+    .admin{padding:22px 18px; border-radius:16px;}
+    .drawer{width:100vw;}
   }
 </style>
 </head>
@@ -395,6 +438,10 @@
   <div class="drawer-foot">
     <div class="drawer-total"><span>Total</span><span id="drawerTotal">৳0</span></div>
     <button class="btn btn-primary" style="width:100%;" id="checkoutBtn">Checkout</button>
+    <button class="btn btn-whatsapp" id="whatsappBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.98 8.98 0 0 0-7.79 13.44L3 21l3.68-1.24a8.9 8.9 0 0 0 4.36 1.13h.01c4.96 0 9-4.05 9-9.03 0-2.41-.94-4.68-2.65-6.54zm-5.55 13.9h-.01a7.4 7.4 0 0 1-3.8-1.04l-.27-.16-2.83.95.93-2.8-.18-.29a7.47 7.47 0 0 1 6.16-11.49c1.99 0 3.86.78 5.27 2.2a7.45 7.45 0 0 1 2.18 5.27c0 4.13-3.32 7.36-7.45 7.36zm4.08-5.5c-.22-.11-1.32-.65-1.53-.72-.2-.08-.35-.11-.5.11-.15.22-.58.72-.71.87-.13.15-.26.16-.48.06-.22-.11-.94-.35-1.79-1.11-.66-.59-1.11-1.32-1.24-1.54-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.43-.36-.37-.5-.38h-.43c-.15 0-.39.06-.59.28-.2.22-.77.75-.77 1.84s.79 2.14.9 2.29c.11.15 1.55 2.38 3.77 3.33.53.23.94.36 1.26.47.53.17 1.01.14 1.39.09.42-.06 1.32-.54 1.51-1.06.19-.52.19-.96.13-1.06-.06-.1-.2-.15-.42-.26z"/></svg>
+      Order via WhatsApp
+    </button>
   </div>
 </aside>
 
@@ -422,6 +469,10 @@
     {name:"Laundry Detergent", category:"Household", price:150, unit:"per kg", emoji:"🧼"},
     {name:"Tissue Paper", category:"Household", price:90, unit:"per pack", emoji:"🧻"},
   ];
+
+  // ⚠️ REPLACE THIS with your real WhatsApp number, country code first, no + or spaces.
+  // Example: Bangladesh number 01712345678 becomes "8801712345678"
+  const WHATSAPP_NUMBER = "8801571265132";
 
   let basket = []; // {name, price}
   let activeCategory = "All";
@@ -578,6 +629,17 @@
     basket = [];
     updateBasketUI();
     closeDrawer();
+  });
+
+  document.getElementById('whatsappBtn').addEventListener('click', ()=>{
+    if(basket.length === 0){ alert('Your basket is empty.'); return; }
+    const total = basket.reduce((s,i)=>s+i.price, 0);
+    const lines = basket.map((item, i)=> `${i+1}. ${item.name} — ৳${item.price.toFixed(0)}`);
+    const message =
+      `Hello Moin Uddin G T, I want to order:%0A%0A` +
+      lines.join('%0A') +
+      `%0A%0ATotal: ৳${total.toFixed(0)}%0A%0AMy name:%0AMy address:%0AMy phone:`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
