@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===================== SEO META TAGS ===================== -->
+<title>Moin Uddin G T | Online Grocery Store — Fresh Groceries Delivered</title>
+<meta name="description" content="Moin Uddin G T is your online grocery store for rice, grains, cooking oil, ghee, spices, dairy and daily household essentials. Order online and get it delivered to your door.">
+<meta name="keywords" content="Moin Uddin G T, online grocery store, grocery delivery, buy groceries online, daily essentials, rice, oil, ghee, spices, household items">
+<meta name="author" content="Moin Uddin G T">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://moinuddingt.example.com/">
+
+<!-- Open Graph (Facebook/WhatsApp previews) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moin Uddin G T | Online Grocery Store">
+<meta property="og:description" content="Fresh groceries, daily essentials and more — order online from Moin Uddin G T.">
+<meta property="og:site_name" content="Moin Uddin G T">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Moin Uddin G T | Online Grocery Store">
+<meta name="twitter:description" content="Fresh groceries and daily essentials, delivered.">
+
+<!-- Structured data so search engines understand this is a grocery store -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GroceryStore",
+  "name": "Moin Uddin G T",
+  "description": "Online grocery store offering rice, grains, cooking oil, ghee, spices, dairy and daily household essentials.",
+  "url": "https://moinuddingt.example.com/"
+}
+</script>
+<!-- =================== END SEO META TAGS ==================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --green-deep:#1F3B23;
+    --green-mid:#3C6E33;
+    --sage:#EFF3E6;
+    --tomato:#C1440E;
+    --butter:#F2B705;
+    --charcoal:#232520;
+    --paper:#FBFAF5;
+    --line: rgba(31,59,35,0.14);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Public Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- Skip link / focus ---------- */
+  .skip-link{
+    position:absolute; left:-999px; top:0; background:var(--green-deep); color:#fff;
+    padding:10px 16px; border-radius:0 0 8px 0; z-index:100;
+  }
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--butter); outline-offset:2px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; gap:20px; justify-content:space-between;
+    flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:40px;height:40px;border-radius:10px;
+    background:var(--green-deep);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--butter); font-family:'Fraunces',serif; font-weight:700; font-size:20px;
+  }
+  .brand-name{font-family:'Fraunces',serif; font-size:20px; font-weight:600; line-height:1.1;}
+  .brand-sub{font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--green-mid); font-weight:600;}
+
+  .search-wrap{flex:1; min-width:220px; max-width:520px; position:relative;}
+  .search-wrap input{
+    width:100%; padding:11px 16px 11px 40px; border-radius:999px;
+    border:1px solid var(--line); background:var(--sage); font-size:15px; font-family:inherit;
+  }
+  .search-wrap svg{position:absolute; left:14px; top:50%; transform:translateY(-50%); width:16px; height:16px; opacity:.6;}
+
+  .header-actions{display:flex; align-items:center; gap:10px;}
+  .btn{
+    font-family:inherit; font-weight:700; font-size:14px; border:none; cursor:pointer;
+    padding:10px 18px; border-radius:999px; transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--green-deep); color:#fff;}
+  .btn-primary:hover{background:var(--green-mid);}
+  .btn-ghost{background:transparent; color:var(--green-deep); border:1px solid var(--line);}
+  .btn-basket{
+    background:var(--tomato); color:#fff; display:flex; align-items:center; gap:8px;
+  }
+  .basket-count{
+    background:rgba(255,255,255,0.25); border-radius:999px; padding:1px 8px; font-size:12px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    max-width:1180px; margin:0 auto; padding:56px 24px 40px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--green-mid); background:var(--sage); padding:6px 12px; border-radius:999px; margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(36px,5vw,58px); line-height:1.02; color:var(--green-deep);}
+  .hero h1 em{font-style:normal; color:var(--tomato);}
+  .hero p{font-size:17px; line-height:1.6; color:#4b4f45; max-width:46ch; margin:18px 0 26px;}
+  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap;}
+
+  /* Signature element: rotating "market ticker" of what's fresh today */
+  .ticker{
+    margin-top:34px; border-top:1px solid var(--line); padding-top:16px;
+    display:flex; align-items:center; gap:14px; font-size:13px; color:var(--green-mid); font-weight:600;
+    overflow:hidden;
+  }
+  .ticker-label{white-space:nowrap; text-transform:uppercase; letter-spacing:.06em; font-size:11px;}
+  .ticker-track{display:flex; gap:28px; white-space:nowrap; animation:scrollTicker 18s linear infinite;}
+  .ticker-track span::after{content:"•"; margin-left:28px; color:var(--tomato);}
+  @keyframes scrollTicker{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  .hero-art{
+    background:var(--green-deep);
+    border-radius:24px;
+    aspect-ratio:4/3.4;
+    position:relative;
+    overflow:hidden;
+    display:flex; align-items:flex-end;
+  }
+  .hero-art .crate{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 25%, rgba(242,183,5,0.35), transparent 40%),
+      radial-gradient(circle at 75% 65%, rgba(193,68,14,0.35), transparent 45%),
+      repeating-linear-gradient(135deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 22px);
+  }
+  .hero-art .price-tag{
+    position:relative; margin:20px; background:var(--paper); border-radius:14px; padding:18px 20px;
+    max-width:220px;
+  }
+  .hero-art .price-tag .p1{font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--green-mid); font-weight:700;}
+  .hero-art .price-tag .p2{font-family:'Fraunces',serif; font-size:26px; color:var(--green-deep); margin-top:4px;}
+
+  /* ---------- Category strip ---------- */
+  .categories{max-width:1180px; margin:0 auto; padding:0 24px 8px; display:flex; gap:10px; flex-wrap:wrap;}
+  .chip{
+    padding:8px 16px; border-radius:999px; background:var(--sage); font-size:13.5px; font-weight:600;
+    border:1px solid transparent; cursor:pointer; color:var(--green-deep);
+  }
+  .chip.active{background:var(--green-deep); color:#fff;}
+
+  /* ---------- Section headers ---------- */
+  .section{max-width:1180px; margin:0 auto; padding:44px 24px;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:22px; gap:16px; flex-wrap:wrap;}
+  .section-head h2{font-size:28px; color:var(--green-deep);}
+  .section-head p{color:#6a6e62; font-size:14px; margin:4px 0 0;}
+
+  /* ---------- Product grid ---------- */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:18px;
+  }
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:14px; display:flex; flex-direction:column; gap:10px;
+  }
+  .card-img{
+    border-radius:10px; aspect-ratio:1/0.85;
+    display:flex; align-items:center; justify-content:center;
+    font-size:38px;
+  }
+  .card h3{font-size:15.5px; font-weight:700;}
+  .card .unit{font-size:12px; color:#8a8e80;}
+  .card-bottom{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
+  .price{font-family:'Fraunces',serif; font-size:18px; color:var(--green-deep);}
+  .add-btn{
+    width:34px; height:34px; border-radius:999px; border:none; background:var(--green-deep); color:#fff;
+    font-size:18px; cursor:pointer; line-height:1;
+  }
+  .add-btn:hover{background:var(--tomato);}
+  .empty-note{color:#8a8e80; font-size:14px; padding:20px 0;}
+
+  /* ---------- Add product panel ---------- */
+  .admin{
+    background:var(--green-deep); color:#fff; border-radius:20px;
+    padding:32px; display:grid; grid-template-columns:1fr 1.4fr; gap:28px;
+  }
+  .admin h2{color:#fff;}
+  .admin p{color:rgba(255,255,255,0.75); font-size:14px; line-height:1.6; margin-top:8px;}
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .form-grid .full{grid-column:1/-1;}
+  label{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:rgba(255,255,255,0.8); display:block; margin-bottom:6px;}
+  input,select{
+    width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.08); color:#fff; font-family:inherit; font-size:14px;
+  }
+  input::placeholder{color:rgba(255,255,255,0.5);}
+  input:focus, select:focus{background:rgba(255,255,255,0.14);}
+  select option{color:#000;}
+  .form-actions{display:flex; justify-content:flex-end; margin-top:14px;}
+  .form-actions .btn{background:var(--butter); color:var(--green-deep);}
+  .form-msg{font-size:13px; margin-top:10px; color:var(--butter); min-height:16px;}
+
+  /* ---------- Basket drawer ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(20,26,18,0.4); z-index:90;
+    opacity:0; pointer-events:none; transition:opacity .2s ease;
+  }
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; height:100%; width:min(380px, 90vw);
+    background:var(--paper); z-index:95; transform:translateX(100%);
+    transition:transform .25s ease; display:flex; flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{padding:20px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;}
+  .drawer-close{background:none; border:none; font-size:22px; cursor:pointer; color:var(--green-deep);}
+  .drawer-items{flex:1; overflow-y:auto; padding:14px 20px;}
+  .drawer-item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px;}
+  .drawer-item button{background:none; border:none; color:var(--tomato); cursor:pointer; font-size:13px;}
+  .drawer-foot{padding:18px 20px; border-top:1px solid var(--line);}
+  .drawer-total{display:flex; justify-content:space-between; font-family:'Fraunces',serif; font-size:19px; color:var(--green-deep); margin-bottom:14px;}
+
+  footer{
+    border-top:1px solid var(--line); margin-top:40px; padding:30px 24px; text-align:center;
+    font-size:13px; color:#8a8e80;
+  }
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr;}
+    .admin{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div>
+        <div class="brand-name">Moin Uddin G T</div>
+        <div class="brand-sub">Online Grocery Store</div>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Search rice, oil, spices, dairy, household..." aria-label="Search products">
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-basket" id="basketBtn" aria-haspopup="dialog">
+        🧺 Basket <span class="basket-count" id="basketCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="eyebrow">📦 Fresh stock added daily</span>
+      <h1>Groceries that reach<br>your door, <em>same day</em>.</h1>
+      <p>Moin Uddin G T brings rice, grains, cooking oil, ghee, spices, dairy and everyday household essentials straight from the store to your kitchen — order in minutes.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn btn-primary">Shop products</a>
+        <a href="#sell" class="btn btn-ghost">Add a product</a>
+      </div>
+
+      <div class="ticker">
+        <span class="ticker-label">Today's fresh</span>
+        <div class="ticker-track" id="tickerTrack"><!-- filled by JS --></div>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="crate"></div>
+      <div class="price-tag">
+        <div class="p1">This week's rate</div>
+        <div class="p2">Basmati Rice — ৳120/kg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY FILTER -->
+  <div class="categories" id="categoryChips"></div>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="section-head">
+      <div>
+        <h2>All products</h2>
+        <p id="resultCount">Showing everything in stock</p>
+      </div>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <!-- ADD PRODUCT (ADMIN) -->
+  <section class="section" id="sell">
+    <div class="admin">
+      <div>
+        <h2>Add a new product</h2>
+        <p>List a new item in the store. It appears instantly in the catalog above and becomes searchable right away.</p>
+      </div>
+      <form id="productForm">
+        <div class="form-grid">
+          <div>
+            <label for="pName">Product name</label>
+            <input id="pName" type="text" placeholder="e.g. Red Onion" required>
+          </div>
+          <div>
+            <label for="pCategory">Category</label>
+            <select id="pCategory">
+              <option>Rice &amp; Grains</option>
+              <option>Oil &amp; Ghee</option>
+              <option>Spices</option>
+              <option>Dairy &amp; Eggs</option>
+              <option>Household</option>
+            </select>
+          </div>
+          <div>
+            <label for="pPrice">Price (৳)</label>
+            <input id="pPrice" type="number" min="0" step="0.01" placeholder="e.g. 60" required>
+          </div>
+          <div>
+            <label for="pUnit">Unit</label>
+            <input id="pUnit" type="text" placeholder="e.g. per kg, per dozen">
+          </div>
+          <div class="full">
+            <label for="pEmoji">Icon (emoji)</label>
+            <input id="pEmoji" type="text" placeholder="e.g. 🧅" maxlength="4">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn">Add product</button>
+        </div>
+        <div class="form-msg" id="formMsg" role="status"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Moin Uddin G T — Online Grocery Store. Fresh groceries, delivered daily.
+</footer>
+
+<!-- BASKET DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-label="Your basket">
+  <div class="drawer-head">
+    <h2 style="font-size:19px;">Your basket</h2>
+    <button class="drawer-close" id="drawerClose" aria-label="Close basket">×</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>Total</span><span id="drawerTotal">৳0</span></div>
+    <button class="btn btn-primary" style="width:100%;" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<script>
+  // ---------------------------------------------------------------
+  // Product data. Held in memory (resets on page reload) so this
+  // file works standalone with no server or database.
+  // To make products permanent, they'd need to be saved to a file
+  // or a backend — ask Claude if you'd like help adding that later.
+  // ---------------------------------------------------------------
+  let products = [
+    {name:"Basmati Rice", category:"Rice & Grains", price:120, unit:"per kg", emoji:"🍚"},
+    {name:"Chinigura Rice", category:"Rice & Grains", price:140, unit:"per kg", emoji:"🍚"},
+    {name:"Red Lentils (Masoor Dal)", category:"Rice & Grains", price:130, unit:"per kg", emoji:"🌾"},
+    {name:"Soybean Oil", category:"Oil & Ghee", price:185, unit:"per litre", emoji:"🛢️"},
+    {name:"Mustard Oil", category:"Oil & Ghee", price:210, unit:"per litre", emoji:"🛢️"},
+    {name:"Ghee", category:"Oil & Ghee", price:900, unit:"per kg", emoji:"🧈"},
+    {name:"Turmeric Powder", category:"Spices", price:70, unit:"per 200g", emoji:"🟡"},
+    {name:"Cumin Seeds", category:"Spices", price:95, unit:"per 100g", emoji:"🌾"},
+    {name:"Red Chili Powder", category:"Spices", price:85, unit:"per 200g", emoji:"🌶️"},
+    {name:"Milk", category:"Dairy & Eggs", price:75, unit:"per litre", emoji:"🥛"},
+    {name:"Eggs", category:"Dairy & Eggs", price:130, unit:"per dozen", emoji:"🥚"},
+    {name:"Butter", category:"Dairy & Eggs", price:180, unit:"per 200g", emoji:"🧈"},
+    {name:"Dish Soap", category:"Household", price:110, unit:"per bottle", emoji:"🧴"},
+    {name:"Laundry Detergent", category:"Household", price:150, unit:"per kg", emoji:"🧼"},
+    {name:"Tissue Paper", category:"Household", price:90, unit:"per pack", emoji:"🧻"},
+  ];
+
+  let basket = []; // {name, price}
+  let activeCategory = "All";
+  let searchTerm = "";
+
+  const grid = document.getElementById('productGrid');
+  const chipsWrap = document.getElementById('categoryChips');
+  const resultCount = document.getElementById('resultCount');
+  const tickerTrack = document.getElementById('tickerTrack');
+
+  function categories(){
+    return ["All", ...new Set(products.map(p => p.category))];
+  }
+
+  function renderChips(){
+    chipsWrap.innerHTML = categories().map(c =>
+      `<button class="chip ${c===activeCategory?'active':''}" data-cat="${c}">${c}</button>`
+    ).join('');
+    chipsWrap.querySelectorAll('.chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        activeCategory = chip.dataset.cat;
+        renderChips();
+        renderGrid();
+      });
+    });
+  }
+
+  function renderTicker(){
+    const items = products.slice(0, 8).map(p => `<span>${p.emoji} ${p.name}</span>`).join('');
+    tickerTrack.innerHTML = items + items; // duplicate for seamless scroll
+  }
+
+  const bgColors = ["#EFF3E6","#FBEFE4","#EAF1EE","#F6EDE0"];
+
+  function renderGrid(){
+    let list = products.filter(p=>{
+      const matchesCat = activeCategory === "All" || p.category === activeCategory;
+      const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCat && matchesSearch;
+    });
+
+    resultCount.textContent = searchTerm
+      ? `${list.length} result${list.length!==1?'s':''} for "${searchTerm}"`
+      : `Showing ${list.length} item${list.length!==1?'s':''} in ${activeCategory === 'All' ? 'the store' : activeCategory}`;
+
+    if(list.length === 0){
+      grid.innerHTML = `<p class="empty-note">No products match — try a different search or category.</p>`;
+      return;
+    }
+
+    grid.innerHTML = list.map((p, i)=>`
+      <div class="card">
+        <div class="card-img" style="background:${bgColors[i % bgColors.length]}">${p.emoji || '🛒'}</div>
+        <div>
+          <h3>${p.name}</h3>
+          <div class="unit">${p.unit || ''}</div>
+        </div>
+        <div class="card-bottom">
+          <span class="price">৳${Number(p.price).toFixed(0)}</span>
+          <button class="add-btn" aria-label="Add ${p.name} to basket" data-name="${p.name}" data-price="${p.price}">+</button>
+        </div>
+      </div>
+    `).join('');
+
+    grid.querySelectorAll('.add-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        addToBasket(btn.dataset.name, Number(btn.dataset.price));
+      });
+    });
+  }
+
+  // ---------- Search ----------
+  document.getElementById('searchInput').addEventListener('input', (e)=>{
+    searchTerm = e.target.value;
+    renderGrid();
+  });
+
+  // ---------- Add product form ----------
+  document.getElementById('productForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const name = document.getElementById('pName').value.trim();
+    const category = document.getElementById('pCategory').value;
+    const price = parseFloat(document.getElementById('pPrice').value);
+    const unit = document.getElementById('pUnit').value.trim() || 'each';
+    const emoji = document.getElementById('pEmoji').value.trim() || '🛒';
+
+    if(!name || isNaN(price)){
+      document.getElementById('formMsg').textContent = 'Please enter a valid name and price.';
+      return;
+    }
+
+    products.unshift({name, category, price, unit, emoji});
+    document.getElementById('formMsg').textContent = `"${name}" was added to the catalog.`;
+    e.target.reset();
+    renderChips();
+    renderGrid();
+    renderTicker();
+    document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  });
+
+  // ---------- Basket ----------
+  const overlay = document.getElementById('overlay');
+  const drawer = document.getElementById('drawer');
+  const drawerItems = document.getElementById('drawerItems');
+  const drawerTotal = document.getElementById('drawerTotal');
+  const basketCount = document.getElementById('basketCount');
+
+  function addToBasket(name, price){
+    basket.push({name, price});
+    updateBasketUI();
+    openDrawer();
+  }
+
+  function removeFromBasket(index){
+    basket.splice(index,1);
+    updateBasketUI();
+  }
+
+  function updateBasketUI(){
+    basketCount.textContent = basket.length;
+    if(basket.length === 0){
+      drawerItems.innerHTML = `<p class="empty-note">Your basket is empty. Add something fresh!</p>`;
+    } else {
+      drawerItems.innerHTML = basket.map((item, i)=>`
+        <div class="drawer-item">
+          <span>${item.name}</span>
+          <span>৳${item.price.toFixed(0)} <button data-i="${i}">remove</button></span>
+        </div>
+      `).join('');
+      drawerItems.querySelectorAll('button[data-i]').forEach(b=>{
+        b.addEventListener('click', ()=> removeFromBasket(Number(b.dataset.i)));
+      });
+    }
+    const total = basket.reduce((s,i)=>s+i.price, 0);
+    drawerTotal.querySelector ? null : null;
+    drawerTotal.innerHTML = `<span>Total</span><span>৳${total.toFixed(0)}</span>`;
+  }
+
+  function openDrawer(){
+    overlay.classList.add('open');
+    drawer.classList.add('open');
+  }
+  function closeDrawer(){
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+  }
+
+  document.getElementById('basketBtn').addEventListener('click', openDrawer);
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.getElementById('checkoutBtn').addEventListener('click', ()=>{
+    if(basket.length === 0){ alert('Your basket is empty.'); return; }
+    alert(`Thanks for your order! Total: ৳${basket.reduce((s,i)=>s+i.price,0).toFixed(0)}\n(This is a demo checkout — connect a payment provider to go live.)`);
+    basket = [];
+    updateBasketUI();
+    closeDrawer();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Initial render
+  renderChips();
+  renderGrid();
+  renderTicker();
+  updateBasketUI();
+</script>
+
+</body>
+</html>
